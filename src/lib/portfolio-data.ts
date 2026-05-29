@@ -51,9 +51,9 @@ export const experience = [
     period: "Jan 2026 — Present",
     current: true,
     highlights: [
-      "Contributing to Axis Bank's technology ecosystem through FreechargeBiz, ensuring seamless continuity, stability, and scalability of critical fintech platforms during the organizational transition.",
-      "Driving backend engineering initiatives focused on distributed systems, platform modernization, and high-volume financial transaction processing while maintaining enterprise-grade reliability and performance.",
-      "Collaborating cross-functionally with product, infrastructure, and compliance teams to deliver secure, observable, and highly available services aligned with Axis Bank's enterprise standards.",
+      "Supporting Axis Bank's fintech platforms through FreechargeBiz, ensuring platform stability and scalability during the organizational transition.",
+      "Building scalable backend systems and distributed services for high-volume financial transaction processing.",
+      "Designed and delivered a Mutual Fund Notification System using event-driven architecture, enabling real-time Email, Push, and In-App notifications for transaction and SIP events.",
     ],
   },
   {
@@ -87,7 +87,7 @@ export const projects = [
     title: "Digital Gold Platform",
     tag: "Fintech · 1.5M+ users",
     description:
-      "Large-scale Digital Gold platform supporting Buy, Sell, Delivery, and SIP journeys. Led migration from monolithic to RESTful microservices and optimized critical transaction workflows.",
+      "Architected and scaled the Digital Gold platform, driving microservices migration, 90% SIP processing optimization, 30% reduction in transaction failures, and automated reconciliation/refund workflows to enhance reliability, scalability, and operational efficiency.",
     tech: ["Node.js", "MongoDB", "Redis", "AWS SQS/SNS", "Microservices"],
     icon: Boxes,
   },
@@ -95,7 +95,7 @@ export const projects = [
     title: "National Pension System (NPS)",
     tag: "Greenfield · KFintech",
     description:
-      "Built NPS platform from scratch integrating with KFintech. Developed Lump Sum investments and Monthly SIP functionality with secure transaction processing.",
+      "Architected and delivered the NPS platform from the ground up, integrating with KFintech to support Lump Sum and SIP investments while optimizing secure, compliant, and high-performance transaction workflows.",
     tech: ["Node.js", "MongoDB", "Redis", "AWS"],
     icon: Shield,
   },
@@ -103,7 +103,7 @@ export const projects = [
     title: "Gold Loan Renewal Journey",
     tag: "Automation · <3min disbursal",
     description:
-      "Automated gold loan renewal system reducing loan disbursal time to under 3 minutes through workflow automation and backend optimization.",
+      "Designed and delivered a fully automated Gold Loan Renewal platform for Axis Bank, reducing loan disbursal time to under 3 minutes through end-to-end automation, payment exception handling, and seamless Finacle/ESB integrations.",
     tech: ["Node.js", "Redis", "MongoDB", "Microservices"],
     icon: Zap,
   },

@@ -11,8 +11,8 @@ export const profile = {
   location: "Gurgaon, India",
   email: "malikgaurav080@gmail.com",
   phone: "+91 8791034774",
-  linkedin: "https://linkedin.com/in/your-profile",
-  github: "https://github.com/your-profile",
+  linkedin: "https://www.linkedin.com/in/gaurav-malik-a68b08174",
+  github: "https://github.com/malikgaurav080",
   resumeUrl: "/resume.pdf",
 };
 

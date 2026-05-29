@@ -51,8 +51,8 @@ export const experience = [
     period: "Jan 2026 — Present",
     current: true,
     highlights: [
-      "Contributed to Axis Bank IT and FreechargeBiz platform separation.",
-      "Ensured continuity, scalability, and operational stability across critical systems.",
+      "Contributing to Axis Bank's technology ecosystem through FreechargeBiz, ensuring seamless continuity, stability, and scalability of critical fintech platforms during the organizational transition.",
+      "Driving backend engineering initiatives focused on distributed systems, platform modernization, and high-volume financial transaction processing while maintaining enterprise-grade reliability and performance.",
     ],
   },
   {

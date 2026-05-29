@@ -53,6 +53,7 @@ export const experience = [
     highlights: [
       "Contributing to Axis Bank's technology ecosystem through FreechargeBiz, ensuring seamless continuity, stability, and scalability of critical fintech platforms during the organizational transition.",
       "Driving backend engineering initiatives focused on distributed systems, platform modernization, and high-volume financial transaction processing while maintaining enterprise-grade reliability and performance.",
+      "Collaborating cross-functionally with product, infrastructure, and compliance teams to deliver secure, observable, and highly available services aligned with Axis Bank's enterprise standards.",
     ],
   },
   {

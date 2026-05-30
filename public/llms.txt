@@ -1,0 +1,7 @@
+# Gaurav Malik — Senior Backend Engineer
+
+> Portfolio of Gaurav Malik, a Senior Software Development Engineer with 4.5+ years building scalable Node.js microservices, event-driven systems, and fintech platforms (Digital Gold, NPS, Mutual Funds).
+
+## Pages
+
+- [Home](/): About, skills, experience, projects, system design expertise, and contact details.

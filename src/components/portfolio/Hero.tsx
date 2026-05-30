@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
-import profilePic from "@/assets/gaurav-profile.jpg";
+import profilePic144 from "@/assets/gaurav-profile-144.webp";
+import profilePic288 from "@/assets/gaurav-profile-288.webp";
+import profilePic432 from "@/assets/gaurav-profile-432.webp";
+import profilePic576 from "@/assets/gaurav-profile-576.webp";
+import profilePicFallback from "@/assets/gaurav-profile-576.jpg";
 
 export function Hero() {
   return (
@@ -30,12 +34,23 @@ export function Hero() {
           >
             <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-md opacity-70" aria-hidden />
             <div className="relative size-28 sm:size-36 rounded-full p-[2px] bg-gradient-to-tr from-brand via-foreground/30 to-brand/50">
-              <img
-                src={profilePic}
-                alt="Gaurav Malik — Senior Backend Engineer"
-                className="size-full rounded-full object-cover ring-2 ring-background shadow-2xl"
-                loading="eager"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${profilePic144} 144w, ${profilePic288} 288w, ${profilePic432} 432w, ${profilePic576} 576w`}
+                  sizes="(min-width: 640px) 144px, 112px"
+                />
+                <img
+                  src={profilePicFallback}
+                  width={288}
+                  height={288}
+                  alt="Gaurav Malik — Senior Backend Engineer"
+                  className="size-full rounded-full object-cover ring-2 ring-background shadow-2xl"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
             <span className="absolute bottom-1 right-1 size-3.5 rounded-full bg-emerald-500 ring-2 ring-background" aria-hidden />
           </motion.div>

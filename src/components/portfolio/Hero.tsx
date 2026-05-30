@@ -21,14 +21,34 @@ export function Hero() {
           <MapPin className="size-3" />
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-6 text-5xl sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tighter"
-        >
-          Hi, I'm <span className="text-gradient">Gaurav Malik</span>.
-        </motion.h1>
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="relative shrink-0"
+          >
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-md opacity-70" aria-hidden />
+            <div className="relative size-28 sm:size-36 rounded-full p-[2px] bg-gradient-to-tr from-brand via-foreground/30 to-brand/50">
+              <img
+                src={profilePic}
+                alt="Gaurav Malik — Senior Backend Engineer"
+                className="size-full rounded-full object-cover ring-2 ring-background shadow-2xl"
+                loading="eager"
+              />
+            </div>
+            <span className="absolute bottom-1 right-1 size-3.5 rounded-full bg-emerald-500 ring-2 ring-background" aria-hidden />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="text-5xl sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tighter"
+          >
+            Hi, I'm <span className="text-gradient">Gaurav Malik</span>.
+          </motion.h1>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}

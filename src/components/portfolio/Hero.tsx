@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
-import profilePic from "@/assets/gaurav-profile.jpg";
+import profilePic144 from "@/assets/gaurav-profile-144.webp";
+import profilePic288 from "@/assets/gaurav-profile-288.webp";
+import profilePic432 from "@/assets/gaurav-profile-432.webp";
+import profilePic576 from "@/assets/gaurav-profile-576.webp";
+import profilePicFallback from "@/assets/gaurav-profile-576.jpg";
 
 export function Hero() {
   return (

@@ -32,6 +32,7 @@ export function Contact() {
             { icon: MapPin, label: profile.location },
             { icon: Linkedin, label: "LinkedIn", href: profile.linkedin },
             { icon: Github, label: "GitHub", href: profile.github },
+            { icon: Instagram, label: "Instagram", href: profile.instagram },
           ].map((c) => {
             const Inner = (
               <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface/60 backdrop-blur p-4 hover:border-brand/40 transition-colors">

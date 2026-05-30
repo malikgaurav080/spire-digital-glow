@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Gaurav Malik | Senior Backend Engineer" },
+      { name: "description", content: "Backend Engineer specializing in Node.js, Microservices, System Design, Distributed Systems, Fintech Platforms, and Cloud Technologies." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Gaurav Malik | Senior Backend Engineer" },
+      { property: "og:description", content: "Backend Engineer specializing in Node.js, Microservices, System Design, Distributed Systems, Fintech Platforms, and Cloud Technologies." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Gaurav Malik | Senior Backend Engineer" },
+      { name: "twitter:description", content: "Backend Engineer specializing in Node.js, Microservices, System Design, Distributed Systems, Fintech Platforms, and Cloud Technologies." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/471463ab-22fe-4ab3-bd40-0c1d12172b84" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/471463ab-22fe-4ab3-bd40-0c1d12172b84" },
     ],
     links: [
       {

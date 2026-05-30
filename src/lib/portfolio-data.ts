@@ -13,6 +13,7 @@ export const profile = {
   phone: "+91 8791034774",
   linkedin: "https://www.linkedin.com/in/gaurav-malik-a68b08174",
   github: "https://github.com/malikgaurav080",
+  instagram: "https://www.instagram.com/malikgaurav080",
   resumeUrl: "/resume.pdf",
 };
 

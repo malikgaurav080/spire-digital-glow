@@ -1,5 +1,5 @@
 import { profile } from "@/lib/portfolio-data";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -20,6 +20,9 @@ export function Footer() {
           </a>
           <a href={profile.github} target="_blank" rel="noreferrer" className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="GitHub">
             <Github className="size-4" />
+          </a>
+          <a href={profile.instagram} target="_blank" rel="noreferrer" className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="Instagram">
+            <Instagram className="size-4" />
           </a>
         </div>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Gaurav Malik</p>

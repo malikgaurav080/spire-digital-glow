@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { profile } from "@/lib/portfolio-data";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -32,6 +32,7 @@ export function Contact() {
             { icon: MapPin, label: profile.location },
             { icon: Linkedin, label: "LinkedIn", href: profile.linkedin },
             { icon: Github, label: "GitHub", href: profile.github },
+            { icon: Instagram, label: "Instagram", href: profile.instagram },
           ].map((c) => {
             const Inner = (
               <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface/60 backdrop-blur p-4 hover:border-brand/40 transition-colors">

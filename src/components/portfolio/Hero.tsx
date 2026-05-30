@@ -25,34 +25,34 @@ export function Hero() {
           <MapPin className="size-3" />
         </motion.div>
 
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+        <div className="mt-8 flex flex-col items-center text-center gap-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="relative shrink-0"
           >
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-md opacity-70" aria-hidden />
-            <div className="relative size-28 sm:size-36 rounded-full p-[2px] bg-gradient-to-tr from-brand via-foreground/30 to-brand/50">
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-xl opacity-70" aria-hidden />
+            <div className="relative size-48 sm:size-64 rounded-full p-[3px] bg-gradient-to-tr from-brand via-foreground/30 to-brand/50">
               <picture>
                 <source
                   type="image/webp"
-                  srcSet={`${profilePic144} 144w, ${profilePic288} 288w, ${profilePic432} 432w, ${profilePic576} 576w`}
-                  sizes="(min-width: 640px) 144px, 112px"
+                  srcSet={`${profilePic288} 288w, ${profilePic432} 432w, ${profilePic576} 576w`}
+                  sizes="(min-width: 640px) 256px, 192px"
                 />
                 <img
                   src={profilePicFallback}
-                  width={288}
-                  height={288}
+                  width={576}
+                  height={576}
                   alt="Gaurav Malik — Senior Backend Engineer"
-                  className="size-full rounded-full object-cover ring-2 ring-background shadow-2xl"
+                  className="size-full rounded-full object-contain bg-surface ring-2 ring-background shadow-2xl"
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
                 />
               </picture>
             </div>
-            <span className="absolute bottom-1 right-1 size-3.5 rounded-full bg-emerald-500 ring-2 ring-background" aria-hidden />
+            <span className="absolute bottom-2 right-2 size-4 rounded-full bg-emerald-500 ring-2 ring-background" aria-hidden />
           </motion.div>
 
           <motion.h1
@@ -64,6 +64,7 @@ export function Hero() {
             Hi, I'm <span className="text-gradient">Gaurav Malik</span>.
           </motion.h1>
         </div>
+
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}

@@ -43,7 +43,7 @@ export function Nav() {
             scrolled ? "glass shadow-lg" : "bg-transparent"
           }`}
         >
-          <a href="#top" className="flex items-center gap-2 font-display font-semibold tracking-tight">
+          <a href="#top" aria-label="Gaurav Malik — home" className="flex items-center gap-2 font-display font-semibold tracking-tight">
             <span className="grid place-items-center size-8 rounded-lg bg-foreground text-background">
               <Terminal className="size-4" />
             </span>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { profile } from "@/lib/portfolio-data";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 
 export function Contact() {
   const [sent, setSent] = useState(false);

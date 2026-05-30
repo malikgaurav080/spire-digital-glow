@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
+import profilePic from "@/assets/gaurav-profile.jpg";
 
 export function Hero() {
   return (

@@ -1,5 +1,5 @@
 import { profile } from "@/lib/portfolio-data";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (

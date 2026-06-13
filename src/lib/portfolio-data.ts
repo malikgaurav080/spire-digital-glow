@@ -47,27 +47,16 @@ export const skillGroups = [
 
 export const experience = [
   {
-    company: "FreechargeBiz",
-    role: "Senior Software Development Engineer",
-    period: "Jan 2026 — Present",
-    current: true,
-    highlights: [
-      "Supporting Axis Bank's fintech platforms through FreechargeBiz, ensuring platform stability and scalability during the organizational transition.",
-      "Building scalable backend systems and distributed services for high-volume financial transaction processing.",
-      "Designed and delivered a Mutual Fund Notification System using event-driven architecture, enabling real-time Email, Push, and In-App notifications for transaction and SIP events.",
-    ],
-  },
-  {
     company: "Freecharge",
     role: "Senior Software Development Engineer",
-    period: "Mar 2023 — Dec 2025",
-    current: false,
+    period: "Mar 2023 — Present",
+    current: true,
     highlights: [
-      "Built Digital Gold platform serving 1.5M+ users.",
-      "Developed NPS platform from scratch with KFintech integration.",
-      "Designed scalable microservices architecture and event-driven systems.",
-      "Implemented reporting, reconciliation, and automation systems.",
-      "Led backend development initiatives and cross-team collaboration.",
+      "Supporting Axis Bank's fintech platforms through Freecharge, ensuring platform stability and scalability during the organizational transition.",
+      "Building scalable backend systems and distributed services for high-volume financial transaction processing.",
+      "Designed and delivered a Mutual Fund Notification System using event-driven architecture, enabling real-time Email, Push, and In-App notifications for transaction and SIP events.",
+      "Built and scaled the Digital Gold platform serving 1.5M+ users and developed the NPS platform from scratch with KFintech integration, ensuring secure, reliable, and seamless financial transactions.",
+      "Designed scalable microservices and event-driven architectures, while implementing reporting, reconciliation, and automation systems and leading backend development initiatives through effective cross-team collaboration.",
     ],
   },
   {

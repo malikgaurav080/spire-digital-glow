@@ -130,10 +130,10 @@ export function Hero() {
           ))}
         </motion.div>
 
-        <div className="mt-10 flex items-center gap-2 text-xs text-muted-foreground">
+        {/* <div className="mt-10 flex items-center gap-2 text-xs text-muted-foreground">
           <Sparkles className="size-3.5" />
-          Currently engineering platform separation between Axis Bank IT & FreechargeBiz.
-        </div>
+          {/* Currently engineering platform separation between Axis Bank IT & FreechargeBiz. */}
+        {/* </div> */}
       </div>
     </section>
   );

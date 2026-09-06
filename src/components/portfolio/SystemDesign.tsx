@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
+import { ArchitectureSimulator3D } from "./ArchitectureSimulator3D";
 import { systemDesign } from "@/lib/portfolio-data";
 
 export function SystemDesign() {
@@ -14,6 +15,9 @@ export function SystemDesign() {
       }
       description="From queue choreography to caching strategy — the building blocks behind reliable backends."
     >
+      {/* Interactive 3D Distributed Architecture Pipeline */}
+      <ArchitectureSimulator3D />
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {systemDesign.map((s, i) => (
           <motion.div

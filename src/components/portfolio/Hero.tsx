@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
 import { NetworkCanvas3D } from "./NetworkCanvas3D";
+import { KineticCounter } from "./AnimatedCounter";
 import profilePic144 from "@/assets/gaurav-profile-144.webp";
 import profilePic288 from "@/assets/gaurav-profile-288.webp";
 import profilePic432 from "@/assets/gaurav-profile-432.webp";
@@ -114,7 +115,7 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Marquee stats */}
+        {/* Marquee stats with kinetic rolling slot counters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,24 +123,31 @@ export function Hero() {
           className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl border border-border overflow-hidden bg-border"
         >
           {[
-            { k: "1.5M+", v: "Users served" },
-            { k: "4.5+ yrs", v: "Backend experience" },
-            { k: "<3 min", v: "Loan disbursal" },
-            { k: "99.9%", v: "Service uptime" },
-          ].map((s) => (
+            {
+              stat: "1.5M+",
+              v: "Users served",
+            },
+            {
+              stat: "4.5+ yrs",
+              v: "Backend experience",
+            },
+            {
+              stat: "<3 min",
+              v: "Loan disbursal",
+            },
+            {
+              stat: "99.9%",
+              v: "Service uptime",
+            },
+          ].map((s, idx) => (
             <div key={s.v} className="bg-surface p-5">
-              <div className="text-2xl sm:text-3xl font-display font-semibold tracking-tight">
-                {s.k}
+              <div className="text-2xl sm:text-3xl font-display font-semibold tracking-tight flex items-baseline">
+                <KineticCounter value={s.stat} delay={idx * 0.1} />
               </div>
               <div className="mt-1 text-xs sm:text-sm text-muted-foreground">{s.v}</div>
             </div>
           ))}
         </motion.div>
-
-        {/* <div className="mt-10 flex items-center gap-2 text-xs text-muted-foreground">
-          <Sparkles className="size-3.5" />
-          {/* Currently engineering platform separation between Axis Bank IT & FreechargeBiz. */}
-        {/* </div> */}
       </div>
     </section>
   );

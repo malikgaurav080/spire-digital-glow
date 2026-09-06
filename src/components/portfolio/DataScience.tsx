@@ -27,13 +27,7 @@ export function DataScience() {
             transition={{ duration: 0.6, delay: i * 0.08 }}
             className="h-full flex flex-col"
           >
-            <Card3D
-              maxTilt={12}
-              className="group rounded-3xl border border-border bg-surface/60 backdrop-blur p-7 h-full flex flex-col justify-between"
-            >
-              {/* Ambient hover glow */}
-              <div className="absolute inset-0 bg-mesh opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" />
-
+            <Card3D maxTilt={12} className="group">
               <div className="flex-1 flex flex-col">
                 {/* Header: Icon & Impact Metric with 3D pop */}
                 <div

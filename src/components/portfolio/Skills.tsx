@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
+import { SpotlightCard } from "./SpotlightCard";
 import { skillGroups } from "@/lib/portfolio-data";
 
 export function Skills() {
@@ -22,25 +23,28 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="group relative rounded-2xl border border-border bg-surface/60 backdrop-blur p-6 hover-lift overflow-hidden"
+            className="h-full"
           >
-            <div className="absolute -top-12 -right-12 size-32 rounded-full bg-brand/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative flex items-center gap-3">
-              <span className="grid place-items-center size-10 rounded-xl bg-foreground/5 border border-border">
-                <g.icon className="size-5" />
-              </span>
-              <h3 className="font-display font-semibold text-lg">{g.title}</h3>
-            </div>
-            <div className="relative mt-5 flex flex-wrap gap-1.5">
-              {g.items.map((it) => (
-                <span
-                  key={it}
-                  className="text-xs font-mono px-2.5 py-1 rounded-md bg-foreground/5 border border-border text-muted-foreground hover:text-foreground hover:border-brand/40 transition-colors"
-                >
-                  {it}
-                </span>
-              ))}
-            </div>
+            <SpotlightCard className="p-6 h-full flex flex-col justify-between hover-lift group">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="grid place-items-center size-10 rounded-xl bg-foreground/5 border border-border group-hover:border-brand/40 transition-colors">
+                    <g.icon className="size-5" />
+                  </span>
+                  <h3 className="font-display font-semibold text-lg">{g.title}</h3>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {g.items.map((it) => (
+                    <span
+                      key={it}
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-foreground/5 border border-border text-muted-foreground hover:text-foreground hover:border-brand/40 transition-colors"
+                    >
+                      {it}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

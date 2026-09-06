@@ -5,9 +5,10 @@ interface Card3DProps {
   children: React.ReactNode;
   className?: string;
   maxTilt?: number;
+  onClick?: () => void;
 }
 
-export function Card3D({ children, className = "", maxTilt = 10 }: Card3DProps) {
+export function Card3D({ children, className = "", maxTilt = 10, onClick }: Card3DProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -54,6 +55,7 @@ export function Card3D({ children, className = "", maxTilt = 10 }: Card3DProps) 
     >
       <motion.div
         ref={ref}
+        onClick={onClick}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

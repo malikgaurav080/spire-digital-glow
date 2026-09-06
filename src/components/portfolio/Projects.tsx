@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { Card3D } from "./Card3D";
 import { projects } from "@/lib/portfolio-data";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
+import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
 
 export function Projects() {
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyData | null>(null);
+
   return (
     <Section
       id="projects"
@@ -14,7 +18,7 @@ export function Projects() {
           Projects I've <span className="text-gradient">shipped end-to-end</span>.
         </>
       }
-      description="Selected backend systems behind real fintech products at Freecharge."
+      description="Selected backend systems behind real fintech products at Freecharge. Click any project to inspect its architecture case study."
     >
       <div className="grid md:grid-cols-2 gap-5 items-stretch">
         {projects.map((p, i) => (
@@ -26,7 +30,11 @@ export function Projects() {
             transition={{ duration: 0.6, delay: i * 0.08 }}
             className="h-full flex flex-col"
           >
-            <Card3D maxTilt={12} className="group">
+            <Card3D
+              maxTilt={12}
+              className="group cursor-pointer hover:border-brand/50 transition-colors"
+              onClick={() => setSelectedCaseStudy(p)}
+            >
               <div className="flex-1 flex flex-col">
                 <div
                   style={{ transform: "translateZ(30px)" }}
@@ -35,15 +43,24 @@ export function Projects() {
                   <span className="grid place-items-center size-12 rounded-2xl bg-foreground text-background shadow-md">
                     <p.icon className="size-5" />
                   </span>
-                  <ArrowUpRight className="size-5 text-muted-foreground group-hover:text-foreground group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground group-hover:text-brand transition-colors">
+                    <span className="hidden sm:inline">Case Study</span>
+                    <ArrowUpRight className="size-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                 </div>
 
                 <div
                   style={{ transform: "translateZ(20px)" }}
                   className="relative mt-5 transition-transform duration-300 flex-1 flex flex-col"
                 >
-                  <div className="text-xs font-mono uppercase tracking-widest text-brand">
-                    {p.tag}
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs font-mono uppercase tracking-widest text-brand font-medium">
+                      {p.tag}
+                    </div>
+                    <div className="text-[11px] font-mono text-muted-foreground/80 group-hover:text-foreground flex items-center gap-1">
+                      <Sparkles className="size-3 text-brand" />
+                      <span>Inspect</span>
+                    </div>
                   </div>
                   <h3 className="mt-2 font-display font-semibold text-2xl tracking-tight min-h-[4rem]">
                     {p.title}
@@ -71,6 +88,8 @@ export function Projects() {
           </motion.div>
         ))}
       </div>
+
+      <CaseStudyModal item={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </Section>
   );
 }

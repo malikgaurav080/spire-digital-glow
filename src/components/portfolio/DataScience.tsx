@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { Card3D } from "./Card3D";
 import { dataScience } from "@/lib/portfolio-data";
-import { Activity, ArrowUpRight } from "lucide-react";
+import { Activity, ArrowUpRight, Sparkles } from "lucide-react";
+import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
 
 export function DataScience() {
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyData | null>(null);
+
   return (
     <Section
       id="data-science"
@@ -15,7 +19,7 @@ export function DataScience() {
           <span className="text-gradient">applied machine learning</span>.
         </>
       }
-      description="Bridging high-volume distributed backend systems with real-time stream analytics, anomaly detection, and predictive workflows."
+      description="Bridging high-volume distributed backend systems with real-time stream analytics, anomaly detection, and predictive workflows. Click any system to inspect its case study."
     >
       <div className="grid md:grid-cols-2 gap-5 items-stretch">
         {dataScience.map((item, i) => (
@@ -27,7 +31,11 @@ export function DataScience() {
             transition={{ duration: 0.6, delay: i * 0.08 }}
             className="h-full flex flex-col"
           >
-            <Card3D maxTilt={12} className="group">
+            <Card3D
+              maxTilt={12}
+              className="group cursor-pointer hover:border-brand/50 transition-colors"
+              onClick={() => setSelectedCaseStudy(item)}
+            >
               <div className="flex-1 flex flex-col">
                 {/* Header: Icon & Impact Metric with 3D pop */}
                 <div
@@ -37,10 +45,12 @@ export function DataScience() {
                   <span className="grid place-items-center size-12 rounded-2xl bg-foreground text-background shadow-md">
                     <item.icon className="size-5" />
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-mono text-brand font-medium">
-                    <Activity className="size-3.5 animate-pulse" />
-                    {item.metric}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-mono text-brand font-medium">
+                      <Activity className="size-3.5 animate-pulse" />
+                      {item.metric}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Tag, Title, Description with 3D pop */}
@@ -48,8 +58,14 @@ export function DataScience() {
                   style={{ transform: "translateZ(20px)" }}
                   className="relative mt-5 transition-transform duration-300 flex-1 flex flex-col"
                 >
-                  <div className="text-xs font-mono uppercase tracking-widest text-brand">
-                    {item.tag}
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs font-mono uppercase tracking-widest text-brand font-medium">
+                      {item.tag}
+                    </div>
+                    <div className="text-[11px] font-mono text-muted-foreground/80 group-hover:text-foreground flex items-center gap-1">
+                      <Sparkles className="size-3 text-brand" />
+                      <span>Inspect</span>
+                    </div>
                   </div>
                   <h3 className="mt-2 font-display font-semibold text-2xl tracking-tight flex items-center justify-between min-h-[4rem]">
                     <span>{item.title}</span>
@@ -79,6 +95,8 @@ export function DataScience() {
           </motion.div>
         ))}
       </div>
+
+      <CaseStudyModal item={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </Section>
   );
 }

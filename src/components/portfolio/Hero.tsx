@@ -3,6 +3,7 @@ import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
 import { NetworkCanvas3D } from "./NetworkCanvas3D";
 import { KineticCounter } from "./AnimatedCounter";
+import { MagneticButton } from "./MagneticButton";
 import profilePic144 from "@/assets/gaurav-profile-144.webp";
 import profilePic288 from "@/assets/gaurav-profile-288.webp";
 import profilePic432 from "@/assets/gaurav-profile-432.webp";
@@ -92,27 +93,33 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <a
-            href={profile.resumeUrl}
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition"
-          >
-            <Download className="size-4" />
-            Download Resume
-          </a>
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 backdrop-blur px-5 py-3 text-sm font-medium hover:bg-accent transition"
-          >
-            View Projects
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition"
-          >
-            <Mail className="size-4" />
-            Contact Me
-          </a>
+          <MagneticButton strength={0.3}>
+            <a
+              href={profile.resumeUrl}
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-medium hover:opacity-90 transition shadow-md"
+            >
+              <Download className="size-4" />
+              Download Resume
+            </a>
+          </MagneticButton>
+          <MagneticButton strength={0.3}>
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 backdrop-blur px-5 py-3 text-sm font-medium hover:bg-accent transition"
+            >
+              View Projects
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </MagneticButton>
+          <MagneticButton strength={0.3}>
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition"
+            >
+              <Mail className="size-4" />
+              Contact Me
+            </a>
+          </MagneticButton>
         </motion.div>
 
         {/* Marquee stats with kinetic rolling slot counters */}

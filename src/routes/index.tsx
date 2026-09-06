@@ -1,30 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
-import { About } from "@/components/portfolio/About";
-import { Skills } from "@/components/portfolio/Skills";
-import { Experience } from "@/components/portfolio/Experience";
-import { Projects } from "@/components/portfolio/Projects";
-import { SystemDesign } from "@/components/portfolio/SystemDesign";
-import { AIDLC } from "@/components/portfolio/AIDLC";
-import { Achievements } from "@/components/portfolio/Achievements";
-import { Contact } from "@/components/portfolio/Contact";
-import { Footer } from "@/components/portfolio/Footer";
+
+// Lazy-load below-the-fold sections to optimize initial bundle size and critical render path
+const About = lazy(() =>
+  import("@/components/portfolio/About").then((m) => ({ default: m.About })),
+);
+const Skills = lazy(() =>
+  import("@/components/portfolio/Skills").then((m) => ({ default: m.Skills })),
+);
+const Experience = lazy(() =>
+  import("@/components/portfolio/Experience").then((m) => ({ default: m.Experience })),
+);
+const Projects = lazy(() =>
+  import("@/components/portfolio/Projects").then((m) => ({ default: m.Projects })),
+);
+const SystemDesign = lazy(() =>
+  import("@/components/portfolio/SystemDesign").then((m) => ({ default: m.SystemDesign })),
+);
+const DataScience = lazy(() =>
+  import("@/components/portfolio/DataScience").then((m) => ({ default: m.DataScience })),
+);
+const AIDLC = lazy(() =>
+  import("@/components/portfolio/AIDLC").then((m) => ({ default: m.AIDLC })),
+);
+const Achievements = lazy(() =>
+  import("@/components/portfolio/Achievements").then((m) => ({ default: m.Achievements })),
+);
+const Contact = lazy(() =>
+  import("@/components/portfolio/Contact").then((m) => ({ default: m.Contact })),
+);
+const Footer = lazy(() =>
+  import("@/components/portfolio/Footer").then((m) => ({ default: m.Footer })),
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gaurav Malik — Senior Backend Engineer" },
+      { title: "Gaurav Malik — Senior Backend & Distributed Systems Engineer" },
       {
         name: "description",
         content:
-          "Gaurav Malik — Senior Software Development Engineer with 4.5+ years building scalable Node.js microservices, event-driven systems, and fintech platforms.",
+          "Gaurav Malik — Senior Software Development Engineer with 4.5+ years building scalable Node.js microservices, event-driven distributed systems, data pipelines, and fintech platforms.",
       },
-      { property: "og:title", content: "Gaurav Malik — Senior Backend Engineer" },
+      {
+        property: "og:title",
+        content: "Gaurav Malik — Senior Backend & Distributed Systems Engineer",
+      },
       {
         property: "og:description",
         content:
-          "Scalable distributed systems & fintech platforms. Node.js · Microservices · Kafka · AWS.",
+          "Scalable distributed systems, real-time data pipelines & fintech platforms. Node.js · Microservices · Kafka · AWS · Python · Data Engineering.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -49,7 +76,18 @@ export const Route = createFileRoute("/")({
           email: "mailto:malikgaurav080@gmail.com",
           telephone: "+91 8791034774",
           address: { "@type": "PostalAddress", addressLocality: "Gurgaon", addressCountry: "IN" },
-          knowsAbout: ["Node.js", "TypeScript", "Microservices", "Distributed Systems", "Kafka", "AWS"],
+          knowsAbout: [
+            "Node.js",
+            "TypeScript",
+            "Microservices",
+            "Distributed Systems",
+            "Kafka",
+            "AWS",
+            "Python",
+            "Data Science",
+            "Machine Learning",
+            "Stream Processing",
+          ],
         }),
       },
     ],
@@ -57,22 +95,49 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function SectionFallback() {
+  return (
+    <div className="py-20 flex justify-center items-center text-muted-foreground text-sm font-mono" />
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden">
       <Nav />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <SystemDesign />
-        <AIDLC />
-        <Achievements />
-        <Contact />
+        <Suspense fallback={<SectionFallback />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Skills />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Experience />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <SystemDesign />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <DataScience />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <AIDLC />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Achievements />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

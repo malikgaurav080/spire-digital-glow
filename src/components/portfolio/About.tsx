@@ -7,7 +7,11 @@ export function About() {
     <Section
       id="about"
       eyebrow="About"
-      title={<>Building backend systems that <span className="text-gradient">scale with trust</span>.</>}
+      title={
+        <>
+          Building backend systems that <span className="text-gradient">scale with trust</span>.
+        </>
+      }
     >
       <div className="grid lg:grid-cols-5 gap-8 items-start">
         <motion.p
@@ -17,20 +21,27 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-3 text-lg text-muted-foreground leading-relaxed"
         >
-          I'm a results-driven backend developer with <span className="text-foreground">4.5+ years</span> of
-          experience designing scalable, high-performance backend systems using Node.js, TypeScript,
-          Express.js, microservices, and cloud-native technologies. My focus is on{" "}
-          <span className="text-foreground">system design, distributed systems, APIs, databases,
-          fintech architecture</span>, and shipping performance-optimized backends that handle real
-          money and real users. From migrating monoliths to RESTful microservices, to building
-          event-driven notification platforms, I care about the unglamorous details — idempotency,
-          retries, observability, and graceful degradation.
+          I'm a results-driven backend developer with{" "}
+          <span className="text-foreground">4.5+ years</span> of experience designing scalable,
+          high-performance backend systems using Node.js, TypeScript, Express.js, microservices, and
+          cloud-native technologies. My focus is on{" "}
+          <span className="text-foreground">
+            system design, distributed systems, APIs, databases, fintech architecture
+          </span>
+          , and shipping performance-optimized backends that handle real money and real users. From
+          migrating monoliths to RESTful microservices, to building event-driven notification
+          platforms, I care about the unglamorous details — idempotency, retries, observability, and
+          graceful degradation.
         </motion.p>
 
         <div className="lg:col-span-2 grid gap-3">
           {[
             { icon: Code2, t: "Pragmatic engineer", d: "Ship maintainable code, not clever code." },
-            { icon: Network, t: "Systems thinker", d: "Optimize for the whole pipeline, not one service." },
+            {
+              icon: Network,
+              t: "Systems thinker",
+              d: "Optimize for the whole pipeline, not one service.",
+            },
             { icon: Database, t: "Data-aware", d: "Choose stores by access pattern, not hype." },
           ].map((c, i) => (
             <motion.div

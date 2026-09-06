@@ -1,6 +1,23 @@
 import {
-  Server, Database, Cloud, Network, Radio, Zap, Layers, Shield, GitBranch,
-  Activity, Boxes, Workflow, Cpu, MessageSquare, GaugeCircle,
+  Server,
+  Database,
+  Cloud,
+  Network,
+  Radio,
+  Zap,
+  Layers,
+  Shield,
+  GitBranch,
+  Activity,
+  Boxes,
+  Workflow,
+  Cpu,
+  MessageSquare,
+  GaugeCircle,
+  Binary,
+  BrainCircuit,
+  LineChart,
+  BarChart3,
 } from "lucide-react";
 
 export const profile = {
@@ -36,7 +53,15 @@ export const skillGroups = [
   {
     title: "Architecture",
     icon: Layers,
-    items: ["Microservices", "Event-Driven", "System Design", "Design Patterns", "Distributed Systems", "Caching", "Queue Processing"],
+    items: [
+      "Microservices",
+      "Event-Driven",
+      "System Design",
+      "Design Patterns",
+      "Distributed Systems",
+      "Caching",
+      "Queue Processing",
+    ],
   },
   {
     title: "Messaging",
@@ -108,15 +133,51 @@ export const projects = [
 ];
 
 export const systemDesign = [
-  { title: "Distributed Systems", icon: Network, desc: "Designing resilient, partition-tolerant services at scale." },
-  { title: "Event-Driven Architecture", icon: Workflow, desc: "Kafka & SNS/SQS choreographies for loosely coupled domains." },
-  { title: "Notification Systems", icon: MessageSquare, desc: "Multi-channel pipelines with retries and lifecycle tracking." },
-  { title: "Payment Systems", icon: Shield, desc: "Idempotent, audited transaction flows for fintech." },
-  { title: "Fintech Platforms", icon: Boxes, desc: "Gold, NPS, mutual funds — regulated, high-trust workloads." },
-  { title: "Queue-Based Processing", icon: Layers, desc: "Backpressure, DLQs, and async job orchestration." },
-  { title: "Caching Strategies", icon: GaugeCircle, desc: "Read-through, write-behind, and edge caching with Redis." },
-  { title: "Scalability Patterns", icon: Activity, desc: "Sharding, replication, and horizontal scale playbooks." },
-  { title: "High Availability", icon: GitBranch, desc: "Active-active deployments, failover, and zero-downtime ops." },
+  {
+    title: "Distributed Systems",
+    icon: Network,
+    desc: "Designing resilient, partition-tolerant services at scale.",
+  },
+  {
+    title: "Event-Driven Architecture",
+    icon: Workflow,
+    desc: "Kafka & SNS/SQS choreographies for loosely coupled domains.",
+  },
+  {
+    title: "Notification Systems",
+    icon: MessageSquare,
+    desc: "Multi-channel pipelines with retries and lifecycle tracking.",
+  },
+  {
+    title: "Payment Systems",
+    icon: Shield,
+    desc: "Idempotent, audited transaction flows for fintech.",
+  },
+  {
+    title: "Fintech Platforms",
+    icon: Boxes,
+    desc: "Gold, NPS, mutual funds — regulated, high-trust workloads.",
+  },
+  {
+    title: "Queue-Based Processing",
+    icon: Layers,
+    desc: "Backpressure, DLQs, and async job orchestration.",
+  },
+  {
+    title: "Caching Strategies",
+    icon: GaugeCircle,
+    desc: "Read-through, write-behind, and edge caching with Redis.",
+  },
+  {
+    title: "Scalability Patterns",
+    icon: Activity,
+    desc: "Sharding, replication, and horizontal scale playbooks.",
+  },
+  {
+    title: "High Availability",
+    icon: GitBranch,
+    desc: "Active-active deployments, failover, and zero-downtime ops.",
+  },
 ];
 
 export const aidlc = [
@@ -125,6 +186,45 @@ export const aidlc = [
   { title: "Automated Test Generation", icon: Activity },
   { title: "Technical Documentation", icon: Layers },
   { title: "Engineering Productivity", icon: GaugeCircle },
+];
+
+export const dataScience = [
+  {
+    title: "High-Throughput Streaming & Event Analytics",
+    tag: "Real-time · Kafka & Redis",
+    metric: "10k+ events/sec",
+    description:
+      "Architected distributed stream processing pipelines consuming high-velocity financial events from Kafka topics, computing real-time aggregations, time-series metrics, and transactional anomaly signals.",
+    tech: ["Python", "Kafka Streams", "Redis Streams", "FastAPI", "Pandas"],
+    icon: Binary,
+  },
+  {
+    title: "Transaction Fraud & Anomaly Detection",
+    tag: "Fintech Security · ML Scoring",
+    metric: "<25ms inference",
+    description:
+      "Engineered low-latency scoring pipelines analyzing payment velocities, unexpected geographic anomalies, and transaction failure clusters using statistical anomaly detection and classification models.",
+    tech: ["Python", "Scikit-Learn", "NumPy", "Redis", "Docker"],
+    icon: BrainCircuit,
+  },
+  {
+    title: "Automated Financial Reconciliation & Analytics",
+    tag: "ETL · Big Data Processing",
+    metric: "90% faster reports",
+    description:
+      "Built batch and micro-batch ETL pipelines to reconcile multi-million record ledger entries across bank gateways (Finacle, Axis Bank, KFintech) with automated discrepancy resolution and analytical reporting.",
+    tech: ["Python", "Pandas", "PostgreSQL", "Elasticsearch", "AWS S3"],
+    icon: LineChart,
+  },
+  {
+    title: "Predictive Caching & User Intent Modeling",
+    tag: "Optimization · Heuristics & ML",
+    metric: "40% cache hit boost",
+    description:
+      "Implemented predictive pre-fetching mechanisms analyzing high-frequency user SIP renewals and gold price inquiries to dynamically warm distributed Redis caches ahead of peak market surges.",
+    tech: ["Python", "Redis", "Machine Learning", "Node.js", "Prometheus"],
+    icon: BarChart3,
+  },
 ];
 
 export const achievements = [

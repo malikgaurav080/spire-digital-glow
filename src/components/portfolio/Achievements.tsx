@@ -8,7 +8,11 @@ export function Achievements() {
     <Section
       id="achievements"
       eyebrow="Recognition"
-      title={<>Wins worth <span className="text-gradient">noting</span>.</>}
+      title={
+        <>
+          Wins worth <span className="text-gradient">noting</span>.
+        </>
+      }
     >
       <div className="grid sm:grid-cols-2 gap-4">
         {achievements.map((a, i) => (

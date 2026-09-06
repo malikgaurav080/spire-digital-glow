@@ -8,7 +8,11 @@ export function AIDLC() {
     <Section
       id="aidlc"
       eyebrow="AIDLC"
-      title={<>AI-driven <span className="text-gradient">development lifecycle</span>.</>}
+      title={
+        <>
+          AI-driven <span className="text-gradient">development lifecycle</span>.
+        </>
+      }
       description="Leveraging AI-assisted engineering practices for architecture design, code generation, testing, documentation, and development acceleration."
     >
       <div className="relative rounded-3xl border border-border overflow-hidden bg-surface/60 backdrop-blur p-8 sm:p-12">

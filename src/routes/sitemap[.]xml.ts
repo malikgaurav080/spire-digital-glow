@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://malikgaurav080.lovable.app";
+const DEFAULT_BASE_URL = "http://localhost:3000";
 
 interface SitemapEntry {
   path: string;
@@ -13,15 +13,22 @@ interface SitemapEntry {
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
-        const entries: SitemapEntry[] = [
-          { path: "/", changefreq: "weekly", priority: "1.0" },
-        ];
+      GET: async ({ request }: { request?: Request }) => {
+        let baseUrl = DEFAULT_BASE_URL;
+        if (request) {
+          const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
+          const proto = request.headers.get("x-forwarded-proto") || "http";
+          if (host) {
+            baseUrl = `${proto}://${host}`;
+          }
+        }
+
+        const entries: SitemapEntry[] = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
 
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${baseUrl}${e.path}</loc>`,
             e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,

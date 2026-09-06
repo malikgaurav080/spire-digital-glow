@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
+import { NetworkCanvas3D } from "./NetworkCanvas3D";
 import profilePic144 from "@/assets/gaurav-profile-144.webp";
 import profilePic288 from "@/assets/gaurav-profile-288.webp";
 import profilePic432 from "@/assets/gaurav-profile-432.webp";
@@ -12,6 +13,7 @@ export function Hero() {
     <section id="top" className="relative pt-36 pb-24 sm:pt-44 sm:pb-32 overflow-hidden">
       <div className="absolute inset-0 grid-pattern pointer-events-none" aria-hidden />
       <div className="absolute inset-0 bg-aurora pointer-events-none" aria-hidden />
+      <NetworkCanvas3D />
 
       <div className="relative mx-auto max-w-6xl px-4">
         <motion.div
@@ -32,7 +34,10 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.05 }}
             className="relative shrink-0"
           >
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-md opacity-70" aria-hidden />
+            <div
+              className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand/60 via-foreground/20 to-brand/40 blur-md opacity-70"
+              aria-hidden
+            />
             <div className="relative size-28 sm:size-36 rounded-full p-[2px] bg-gradient-to-tr from-brand via-foreground/30 to-brand/50">
               <picture>
                 <source
@@ -52,7 +57,10 @@ export function Hero() {
                 />
               </picture>
             </div>
-            <span className="absolute bottom-1 right-1 size-3.5 rounded-full bg-emerald-500 ring-2 ring-background" aria-hidden />
+            <span
+              className="absolute bottom-1 right-1 size-3.5 rounded-full bg-emerald-500 ring-2 ring-background"
+              aria-hidden
+            />
           </motion.div>
 
           <motion.h1
@@ -65,8 +73,6 @@ export function Hero() {
           </motion.h1>
         </div>
 
-
-
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,8 +81,8 @@ export function Hero() {
         >
           Senior Backend Engineer specializing in{" "}
           <span className="text-foreground">scalable distributed systems</span> and{" "}
-          <span className="text-foreground">fintech platforms</span>. {profile.experience} of shipping
-          resilient services in Node.js, microservices, and event-driven architectures.
+          <span className="text-foreground">fintech platforms</span>. {profile.experience} of
+          shipping resilient services in Node.js, microservices, and event-driven architectures.
         </motion.p>
 
         <motion.div

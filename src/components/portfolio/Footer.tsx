@@ -12,16 +12,38 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <a href={`mailto:${profile.email}`} className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="Email">
+          <a
+            href={`mailto:${profile.email}`}
+            className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition"
+            aria-label="Email"
+          >
             <Mail className="size-4" />
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="LinkedIn">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition"
+            aria-label="LinkedIn"
+          >
             <Linkedin className="size-4" />
           </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="GitHub">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition"
+            aria-label="GitHub"
+          >
             <Github className="size-4" />
           </a>
-          <a href={profile.instagram} target="_blank" rel="noreferrer" className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition" aria-label="Instagram">
+          <a
+            href={profile.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="grid place-items-center size-10 rounded-full border border-border hover:bg-accent transition"
+            aria-label="Instagram"
+          >
             <Instagram className="size-4" />
           </a>
         </div>

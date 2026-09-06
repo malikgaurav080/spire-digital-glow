@@ -7,7 +7,11 @@ export function SystemDesign() {
     <Section
       id="system-design"
       eyebrow="System Design"
-      title={<>Patterns I design <span className="text-gradient">production systems</span> around.</>}
+      title={
+        <>
+          Patterns I design <span className="text-gradient">production systems</span> around.
+        </>
+      }
       description="From queue choreography to caching strategy — the building blocks behind reliable backends."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">

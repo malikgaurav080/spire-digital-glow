@@ -8,7 +8,11 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title={<>A timeline of <span className="text-gradient">shipped systems</span>.</>}
+      title={
+        <>
+          A timeline of <span className="text-gradient">shipped systems</span>.
+        </>
+      }
     >
       <div className="relative">
         <div className="absolute left-4 sm:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-brand/60 via-border to-transparent" />

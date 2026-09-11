@@ -7,7 +7,8 @@ import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const basePath = process.env.BASE_PATH || "/profile/";
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const basePath = process.env.BASE_PATH || (repoName ? `/${repoName}/` : "/");
 
 export default defineConfig({
   base: basePath,

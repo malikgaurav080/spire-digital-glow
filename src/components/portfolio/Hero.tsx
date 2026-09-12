@@ -12,7 +12,8 @@ import profilePicFallback from "@/assets/gaurav-profile-576.jpg";
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-36 pb-24 sm:pt-44 sm:pb-32 overflow-hidden">
+    <section id="about" className="relative pt-36 pb-24 sm:pt-44 sm:pb-32 overflow-hidden">
+      <div id="top" className="absolute -top-32" />
       <div className="absolute inset-0 grid-pattern pointer-events-none" aria-hidden />
       <div className="absolute inset-0 bg-aurora pointer-events-none" aria-hidden />
       <NetworkCanvas3D />
@@ -81,10 +82,13 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="mt-6 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed"
         >
-          Senior Backend Engineer specializing in{" "}
-          <span className="text-foreground">scalable distributed systems</span> and{" "}
-          <span className="text-foreground">fintech platforms</span>. {profile.experience} of
-          shipping resilient services in Node.js, microservices, and event-driven architectures.
+          Senior Backend &amp; Distributed Systems Engineer specializing in{" "}
+          <span className="text-foreground">high-concurrency fintech platforms</span>,{" "}
+          <span className="text-foreground">event-driven architectures</span>, and resilient{" "}
+          <span className="text-foreground">Node.js microservices</span>. {profile.experience} of
+          architecting mission-critical services across Digital Gold (1.5M+ users), NPS, and Axis
+          Bank ecosystems—processing 10k+ events/sec with Kafka, delivering sub-second transaction
+          SLAs, and accelerating delivery with AIDLC agentic pipelines.
         </motion.p>
 
         <motion.div

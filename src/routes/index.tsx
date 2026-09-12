@@ -4,9 +4,6 @@ import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
 
 // Lazy-load below-the-fold sections to optimize initial bundle size and critical render path
-const About = lazy(() =>
-  import("@/components/portfolio/About").then((m) => ({ default: m.About })),
-);
 const Skills = lazy(() =>
   import("@/components/portfolio/Skills").then((m) => ({ default: m.Skills })),
 );
@@ -42,7 +39,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Gaurav Malik — Senior Software Development Engineer with 4.5+ years building scalable Node.js microservices, event-driven distributed systems, data pipelines, and fintech platforms.",
+          "Gaurav Malik — Senior Backend & Distributed Systems Engineer with 4.5+ years architecting high-concurrency Node.js microservices, Kafka event streaming (10k+ events/s), fintech platforms serving 1.5M+ users, and AIDLC agentic workflows.",
       },
       {
         property: "og:title",
@@ -51,7 +48,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Scalable distributed systems, real-time data pipelines & fintech platforms. Node.js · Microservices · Kafka · AWS · Python · Data Engineering.",
+          "Scalable distributed systems, high-concurrency fintech platforms & Kafka event streaming. 4.5+ years at Freecharge/Axis Bank scaling services to 1.5M+ users.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -107,9 +104,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Suspense fallback={<SectionFallback />}>
-          <About />
-        </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <Skills />
         </Suspense>

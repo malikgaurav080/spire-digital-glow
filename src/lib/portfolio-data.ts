@@ -127,11 +127,9 @@ export const experience = [
     period: "Mar 2023 — Present",
     current: true,
     highlights: [
-      "Supporting Axis Bank's fintech platforms through Freecharge, ensuring platform stability and scalability during the organizational transition.",
-      "Building scalable backend systems and distributed services for high-volume financial transaction processing.",
-      "Designed and delivered a Mutual Fund Notification System using event-driven architecture, enabling real-time Email, Push, and In-App notifications for transaction and SIP events.",
-      "Built and scaled the Digital Gold platform serving 1.5M+ users and developed the NPS platform from scratch with KFintech integration, ensuring secure, reliable, and seamless financial transactions.",
-      "Designed scalable microservices and event-driven architectures, while implementing reporting, reconciliation, and automation systems and leading backend development initiatives through effective cross-team collaboration.",
+      "Architecting and scaling distributed backend microservices and high-throughput transaction pipelines for Axis Bank fintech platforms.",
+      "Driving platform stability, cross-service reliability, automated reconciliation, and fault tolerance across high-concurrency financial workloads.",
+      "Leading backend engineering initiatives and cross-team collaborations to deliver compliant, zero-downtime fintech products.",
     ],
   },
   {
@@ -140,9 +138,9 @@ export const experience = [
     period: "Apr 2021 — Sep 2022",
     current: false,
     highlights: [
-      "Built scalable Node.js microservices for enterprise clients.",
-      "Optimized APIs using Redis caching and async processing.",
-      "Implemented Docker containers and CI/CD pipelines.",
+      "Engineered resilient Node.js microservices and REST APIs for enterprise clients.",
+      "Optimized API latency and database query throughput using Redis caching and asynchronous job processing.",
+      "Streamlined deployments and automated build workflows with Docker containerization and CI/CD pipelines.",
     ],
   },
 ];
@@ -236,23 +234,45 @@ export const projects = [
     },
   },
   {
-    title: "Mutual Fund Notification System",
-    tag: "Event-driven · Distributed",
+    title: "Mutual Funds Investment Platform",
+    tag: "Fintech · Wealth & AMC Integration",
     description:
-      "Distributed notification platform supporting Buy/Sell/SIP transaction events with Email, Push, and In-App notifications. Kafka-based event-driven architecture with retry, lifecycle, and SIP reminder scheduling.",
-    tech: ["Node.js", "Kafka", "PostgreSQL", "Redis"],
+      "Architected and scaled the end-to-end Mutual Funds investment platform supporting Lump Sum, SIP, and STP/SWP portfolios with automated bank mandate registration, real-time NAV tracking, and seamless AMC order routing.",
+    tech: ["Node.js", "MongoDB", "Redis", "Kafka", "BSE StAR MF", "Microservices"],
+    icon: LineChart,
+    caseStudy: {
+      challenge:
+        "Building a regulated, low-latency mutual fund transaction pipeline integrating with external exchange and registrar APIs (BSE StAR MF / AMCs), managing complex SIP mandate registration lifecycles, and handling high-concurrency NAV cut-off rushes without state drift.",
+      architecture:
+        "Event-driven microservices architecture decoupling investor onboarding, bank mandate auto-debit registration (eNACH / UPI Autopay), order routing, and portfolio valuation. Redis caching for live NAV and fund metadata with distributed mutex locks for idempotent order submissions.",
+      resilience:
+        "Two-phase verification against exchange gateways, automated daily reconciliation with clearing corporations, and transactional outbox pattern to guarantee order consistency even during partner API timeouts.",
+      results: [
+        "100% automated STP (Straight-Through Processing) for order execution with BSE StAR MF",
+        "99.7% automated SIP mandate registration success rate",
+        "Sub-second portfolio valuation and historical performance computation",
+      ],
+    },
+  },
+  {
+    title: "Centralized Notification Engine",
+    tag: "Event-Driven · Multi-Product Messaging",
+    description:
+      "Architected an enterprise-wide centralized notification platform powering real-time transaction updates (success/failure), scheduled lifecycle reminders (SIP/SWP), behavioral drop-off nudges (abandoned checkout/page visit), and NFO releases across Email, Push, and In-App.",
+    tech: ["Node.js", "Apache Kafka", "Redis", "PostgreSQL", "AWS SQS", "BullMQ", "WebSockets"],
     icon: MessageSquare,
     caseStudy: {
       challenge:
-        "Delivering millions of time-sensitive NAV notifications, SIP payment alerts, and transaction lifecycle receipts across multiple channels with priority queuing and rate limits.",
+        "Consolidating fragmented notification logic across multiple fintech products (Mutual Funds, Digital Gold, NPS, Gold Loan) while orchestrating vastly different traffic patterns: instantaneous transaction alerts (success, debit failure, refund triggered), scheduled reminders (SIP/SWP due dates), behavioral drop-off nudges (incomplete transaction recovery, page visits without checkout), and high-volume NFO marketing broadcasts without throttling critical financial alerts.",
       architecture:
-        "Kafka-centered event-driven messaging topology with partition keying by user ID, priority worker consumer pools, and Redis for notification deduplication and rate throttling.",
+        "Unified event-driven pipeline with multi-tenant Kafka topics partitioned by user ID for instant transaction events. Distributed cron engines and delayed queue workers evaluate recurring SIP/SWP dates and behavioral events (abandoned transaction journeys within 30 minutes) to push jobs into AWS SQS / BullMQ queues. High-throughput consumer workers resolve channel preferences and dispatch to push (FCM/APNs), email (SES), and a persistent in-app notification center with real-time WebSocket sync and read/unread status tracking.",
       resilience:
-        "Dead Letter Queue (DLQ) isolation for undeliverable push tokens, automated exponential backoff retries, and transactional outbox pattern for database events.",
+        "Dead Letter Queues (DLQ) with automated alert triage, exponential backoff retries with jitter, and dynamic channel fallback (Push -> In-App -> Email). Redis distributed locks and 24-hour hash digests ensure strict idempotency and zero duplicate alerts, while sliding-window rate limiters prevent notification fatigue.",
       results: [
-        "Processes millions of events daily with < 500ms delivery SLA",
-        "Zero duplicate notification dispatches via Redis idempotency",
-        "Dynamic multi-channel fallback (Push -> In-App -> Email)",
+        "< 400ms p99 delivery SLA for critical financial transaction success and failure notifications",
+        "22% conversion recovery on behavioral abandoned transaction and page-visit nudges",
+        "Zero duplicate dispatches across millions of daily notifications via Redis idempotency locks",
+        "Strict queue segregation guaranteeing bulk NFO broadcasts never impact critical transaction alerts",
       ],
     },
   },

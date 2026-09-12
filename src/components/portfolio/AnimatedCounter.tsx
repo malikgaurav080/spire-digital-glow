@@ -40,7 +40,7 @@ function RollingDigit({ digit, delay = 0 }: RollingDigitProps) {
 }
 
 interface KineticCounterProps {
-  value: string; // e.g. "1.5M+", "4.5+ yrs", "<3 min", "99.9%"
+  value: string; // e.g. "1.5M+", "5+ yrs", "<3 min", "99.9%"
   delay?: number;
 }
 

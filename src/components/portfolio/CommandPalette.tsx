@@ -135,7 +135,7 @@ export function CommandPalette({
 
           <CommandItem onSelect={() => runCommand(() => scrollToSection("data-science"))}>
             <Activity className="mr-2 size-4 text-muted-foreground" />
-            <span>Data Science &amp; Stream Analytics</span>
+            <span>Machine Learning &amp; Deep Learning</span>
             <CommandShortcut>#data-science</CommandShortcut>
           </CommandItem>
 

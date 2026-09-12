@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Gaurav Malik — Senior Backend & Distributed Systems Engineer with 4.5+ years architecting high-concurrency Node.js microservices, Kafka event streaming (10k+ events/s), fintech platforms serving 1.5M+ users, and AIDLC agentic workflows.",
+          "Gaurav Malik — Senior Backend & Distributed Systems Engineer with 5+ years architecting high-concurrency Node.js microservices, Kafka event streaming (10k+ events/s), fintech platforms serving 1.5M+ users, and AIDLC agentic workflows.",
       },
       {
         property: "og:title",
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Scalable distributed systems, high-concurrency fintech platforms & Kafka event streaming. 4.5+ years at Freecharge/Axis Bank scaling services to 1.5M+ users.",
+          "Scalable distributed systems, high-concurrency fintech platforms & Kafka event streaming. 5+ years at Freecharge/Axis Bank scaling services to 1.5M+ users.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },

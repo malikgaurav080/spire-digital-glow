@@ -9,7 +9,7 @@ const links = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#system-design", label: "Systems" },
-  { href: "#data-science", label: "Data Science" },
+  { href: "#data-science", label: "ML & Deep Learning" },
   { href: "#aidlc", label: "AIDLC" },
   { href: "#contact", label: "Contact" },
 ];

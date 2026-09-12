@@ -22,7 +22,7 @@ export function About() {
           className="lg:col-span-3 text-lg text-muted-foreground leading-relaxed"
         >
           I'm a results-driven backend developer with{" "}
-          <span className="text-foreground">4.5+ years</span> of experience designing scalable,
+          <span className="text-foreground">5+ years</span> of experience designing scalable,
           high-performance backend systems using Node.js, TypeScript, Express.js, microservices, and
           cloud-native technologies. My focus is on{" "}
           <span className="text-foreground">

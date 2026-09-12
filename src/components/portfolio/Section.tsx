@@ -12,7 +12,7 @@ interface Props {
 
 export function Section({ id, eyebrow, title, description, children, className = "" }: Props) {
   return (
-    <section id={id} className={`relative py-24 sm:py-32 ${className}`}>
+    <section id={id} className={`relative py-12 sm:py-16 lg:py-20 ${className}`}>
       <div className="mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -25,15 +25,15 @@ export function Section({ id, eyebrow, title, description, children, className =
             <span className="size-1 rounded-full bg-brand" />
             {eyebrow}
           </div>
-          <h2 className="mt-4 text-3xl sm:text-5xl font-semibold tracking-tight">{title}</h2>
+          <h2 className="mt-2.5 sm:mt-3.5 text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">{title}</h2>
           {description && (
-            <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
               {description}
             </p>
           )}
         </motion.div>
 
-        <div className="mt-14">{children}</div>
+        <div className="mt-6 sm:mt-10">{children}</div>
       </div>
     </section>
   );

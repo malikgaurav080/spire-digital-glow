@@ -16,6 +16,7 @@ import {
   GaugeCircle,
   Binary,
   BrainCircuit,
+  ScanEye,
   LineChart,
   BarChart3,
   Bot,
@@ -30,7 +31,7 @@ export const profile = {
   name: "Gaurav Malik",
   title: "Senior Software Development Engineer",
   subtitle: "Backend · Distributed Systems · Fintech Platforms · Kafka · AIDLC",
-  experience: "4.5+ Years",
+  experience: "5+ Years",
   location: "Gurgaon, India",
   email: "malikgaurav080@gmail.com",
   phone: "+91 8791034774",
@@ -492,90 +493,90 @@ export const aidlcMetrics = {
 
 export const dataScience = [
   {
-    title: "High-Throughput Streaming & Event Analytics",
-    tag: "Real-time · Kafka & Redis",
+    title: "COVID-19 Chest X-Ray Prediction (Deep CNN & Explainable AI)",
+    tag: "Deep Learning · Computer Vision",
+    metric: "98.4% ROC-AUC",
+    description:
+      "Developed a sophisticated deep learning framework using Convolutional Neural Networks (CNNs) for automated COVID-19 screening from digital chest radiographs. Features transfer learning (ResNet-50), custom dual-path convolutional blocks, and Grad-CAM class activation mapping for clinical interpretability.",
+    tech: ["PyTorch", "TensorFlow", "ResNet-50", "Grad-CAM", "OpenCV", "FastAPI"],
+    icon: ScanEye,
+    caseStudy: {
+      challenge:
+        "Diagnosing pulmonary infections from chest radiography with clinical-grade sensitivity while overcoming severe medical dataset imbalance and eliminating false-positive overlap with viral and bacterial pneumonia.",
+      architecture:
+        "Engineered an end-to-end deep learning pipeline utilizing CLAHE contrast normalization, heavy geometric & photometric data augmentations, and transfer learning with a ResNet-50 backbone fine-tuned via focal loss on multi-source radiographic datasets.",
+      resilience:
+        "Integrated Gradient-weighted Class Activation Mapping (Grad-CAM) to render visual heatmaps overlaying bilateral ground-glass opacities, ensuring transparent clinical verification and explainable AI reasoning.",
+      results: [
+        "Achieved 98.4% ROC-AUC and 96.7% sensitivity on independent test cohorts",
+        "Reduced radiologist initial screening triaging time by over 70%",
+        "Packaged as a low-latency FastAPI inference microservice serving predictions in <120ms",
+      ],
+    },
+  },
+  {
+    title: "Temporal Fraud Detection via Deep Sequence Autoencoders",
+    tag: "Deep Learning · Sequence Modeling",
+    metric: "<20ms Latency",
+    description:
+      "Architected deep temporal representation networks (Bidirectional LSTM & Reconstruction Autoencoders) capturing sophisticated multi-step card testing, velocity spikes, and money laundering patterns across high-frequency payment streams.",
+    tech: ["PyTorch", "Bi-LSTM", "Autoencoders", "ONNX Runtime", "Redis", "Python"],
+    icon: BrainCircuit,
+    caseStudy: {
+      challenge:
+        "Traditional rule engines and static classifiers miss subtle distributed fraud sequences orchestrated across varying merchant tiers, micro-deposits, and days of dormant activity.",
+      architecture:
+        "Trained deep sequential Autoencoders on tokenized transaction trajectories to model benign user behavior; transactions causing reconstruction error spikes beyond dynamic z-score thresholds trigger instant risk scoring.",
+      resilience:
+        "Compiled neural graphs to ONNX Runtime with INT8 quantization and thread-pool pooling to guarantee deterministic <20ms p99 execution without impacting payment checkout latency.",
+      results: [
+        "Reduced false positive transaction rejections by 34%",
+        "Identified distributed account takeovers 4x faster than traditional rule engines",
+        "Evaluates multi-step event sequences within a tight 16ms p99 window",
+      ],
+    },
+  },
+  {
+    title: "Real-Time Transaction Fraud & Anomaly Scoring Engine",
+    tag: "Fintech ML · Low-Latency Inference",
+    metric: "<18ms p99 inference",
+    description:
+      "Engineered high-throughput fintech ML scoring pipelines evaluating transaction velocities, device fingerprints, and geolocation hops using ensemble classification (XGBoost) and unsupervised Isolation Forests.",
+    tech: ["Python", "Scikit-Learn", "XGBoost", "Isolation Forest", "Redis", "Docker"],
+    icon: Shield,
+    caseStudy: {
+      challenge:
+        "Detecting coordinated payment fraud rings and compromised user sessions during instant checkout workflows without degrading the critical checkout latency SLA.",
+      architecture:
+        "Pre-computed feature stores in Redis coupled with a high-throughput Python inference engine running optimized tree ensembles and heuristic velocity counters.",
+      resilience:
+        "Circuit breaker protection with graceful fallback to rule-based evaluation if the ML inference pipeline exceeds a strict 25ms timeout budget.",
+      results: [
+        "Evaluates transaction risk in under 18ms at p99 across peak checkout surges",
+        "Over 99.2% true positive detection on suspicious velocity attacks",
+        "Prevented unauthorized account balance drawdowns across high-volume digital gold operations",
+      ],
+    },
+  },
+  {
+    title: "High-Throughput Event Streaming & Anomaly Detection",
+    tag: "Real-Time ML · Kafka & Redis",
     metric: "10k+ events/sec",
     description:
-      "Architected distributed stream processing pipelines consuming high-velocity financial events from Kafka topics, computing real-time aggregations, time-series metrics, and transactional anomaly signals.",
-    tech: ["Python", "Kafka Streams", "Redis Streams", "FastAPI", "Pandas"],
+      "Architected distributed stream processing pipelines consuming high-velocity financial events from Kafka topics, computing sliding-window statistical deviations, real-time aggregations, and transactional volume anomaly signals.",
+    tech: ["Python", "Kafka Streams", "Redis Streams", "FastAPI", "Pandas", "Prometheus"],
     icon: Binary,
     caseStudy: {
       challenge:
         "Ingesting high-velocity financial telemetry without causing backpressure spikes or consumer group rebalances during volatility surges.",
       architecture:
-        "Distributed Kafka cluster with partition keying on user accounts, consumer group workers written in Python with Redis streaming buffers, and FastAPI query layer.",
+        "Distributed Kafka cluster with partition keying on user accounts, consumer group workers written in Python with Redis streaming buffers, and FastAPI query layer for real-time anomaly querying.",
       resilience:
         "Dynamic backpressure throttling, parallel batch commits, and consumer lag monitoring via Prometheus metrics.",
       results: [
         "Sustained 10,000+ events/sec throughput with zero message loss",
-        "Sub-15ms aggregation query latency for real-time dashboards",
+        "Sub-15ms aggregation query latency for real-time risk dashboards",
         "Seamless horizontal auto-scaling based on Kafka lag metrics",
-      ],
-    },
-  },
-  {
-    title: "Transaction Fraud & Anomaly Detection",
-    tag: "Fintech Security · ML Scoring",
-    metric: "<25ms inference",
-    description:
-      "Engineered low-latency scoring pipelines analyzing payment velocities, unexpected geographic anomalies, and transaction failure clusters using statistical anomaly detection and classification models.",
-    tech: ["Python", "Scikit-Learn", "NumPy", "Redis", "Docker"],
-    icon: BrainCircuit,
-    caseStudy: {
-      challenge:
-        "Detecting coordinated payment fraud rings and compromised user sessions during instant checkout workflows without degrading checkout latency SLA.",
-      architecture:
-        "Pre-computed feature stores in Redis coupled with a high-throughput Python inference engine utilizing Isolation Forest and heuristic velocity classifiers.",
-      resilience:
-        "Graceful fallback to rule-based evaluation if the ML inference pipeline exceeds a strict 25ms timeout budget.",
-      results: [
-        "Evaluates transaction risk in under 18ms at p99",
-        "Over 99.2% true positive detection on suspicious velocity attacks",
-        "Prevented unauthorized account balance drawdowns",
-      ],
-    },
-  },
-  {
-    title: "Automated Financial Reconciliation & Analytics",
-    tag: "ETL · Big Data Processing",
-    metric: "90% faster reports",
-    description:
-      "Built batch and micro-batch ETL pipelines to reconcile multi-million record ledger entries across bank gateways (Finacle, Axis Bank, KFintech) with automated discrepancy resolution and analytical reporting.",
-    tech: ["Python", "Pandas", "PostgreSQL", "Elasticsearch", "AWS S3"],
-    icon: LineChart,
-    caseStudy: {
-      challenge:
-        "Reconciling multi-million record daily settlement files across Axis Bank core banking, payment gateways, and vault partners with manual spreadsheets taking 4+ hours.",
-      architecture:
-        "Automated Python Pandas batch pipeline with S3 data lake storage, PostgreSQL relational ledger verification, and Elasticsearch for fuzzy discrepancy search.",
-      resilience:
-        "Automated idempotency markers preventing duplicate settlement runs, alert webhooks for unresolvable discrepancies, and automated refund generation.",
-      results: [
-        "Reconciliation execution time reduced from 4 hours to under 20 minutes",
-        "Automated 98% of standard payment discrepancy resolutions",
-        "Comprehensive regulatory audit trails generated automatically",
-      ],
-    },
-  },
-  {
-    title: "Predictive Caching & User Intent Modeling",
-    tag: "Optimization · Heuristics & ML",
-    metric: "40% cache hit boost",
-    description:
-      "Implemented predictive pre-fetching mechanisms analyzing high-frequency user SIP renewals and gold price inquiries to dynamically warm distributed Redis caches ahead of peak market surges.",
-    tech: ["Python", "Redis", "Machine Learning", "Node.js", "Prometheus"],
-    icon: BarChart3,
-    caseStudy: {
-      challenge:
-        "Cold cache spikes during market open hours causing direct database contention and elevated latency for high-frequency price inquiries.",
-      architecture:
-        "Predictive heuristics analyzing historical user renewal timelines to proactively warm Redis distributed cache clusters 15 minutes before peak traffic intervals.",
-      resilience:
-        "Stale-while-revalidate caching policy with distributed locks preventing thundering herd cache stampedes.",
-      results: [
-        "Boosted cache hit ratio from 68% to 99.4%",
-        "Reduced primary database read I/O load by 60%",
-        "Eliminated latency spikes during morning market open windows",
       ],
     },
   },

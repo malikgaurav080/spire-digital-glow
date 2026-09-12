@@ -12,14 +12,14 @@ export function DataScience() {
   return (
     <Section
       id="data-science"
-      eyebrow="Data & ML Engineering"
+      eyebrow="Machine Learning & Deep Learning"
       title={
         <>
-          Scalable data pipelines &amp;{" "}
-          <span className="text-gradient">applied machine learning</span>.
+          Applied machine learning &amp;{" "}
+          <span className="text-gradient">deep neural architectures</span>.
         </>
       }
-      description="Bridging high-volume distributed backend systems with real-time stream analytics, anomaly detection, and predictive workflows. Click any system to inspect its case study."
+      description="Bridging deep neural networks (CNNs, sequence modeling) and high-throughput production ML pipelines with sub-20ms inference, fraud detection, and explainable AI. Click any system to inspect its case study."
     >
       <div className="grid md:grid-cols-2 gap-5 items-stretch">
         {dataScience.map((item, i) => (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe,
@@ -11,7 +11,12 @@ import {
   Zap,
   ShieldAlert,
   Server,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
+import { systemDesignPipelineCaseStudy } from "@/lib/portfolio-data";
 
 interface PipelineNode {
   id: string;
@@ -105,11 +110,34 @@ const PIPELINE_NODES: PipelineNode[] = [
   },
 ];
 
-export function ArchitectureSimulator3D() {
+interface ArchitectureSimulator3DProps {
+  onInspectCaseStudy?: (item: CaseStudyData) => void;
+}
+
+export function ArchitectureSimulator3D({ onInspectCaseStudy }: ArchitectureSimulator3DProps = {}) {
   const [activeId, setActiveId] = useState<string>("kafka");
   const [spike, setSpike] = useState(false);
+  const [internalCaseStudy, setInternalCaseStudy] = useState<CaseStudyData | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const activeNode = PIPELINE_NODES.find((n) => n.id === activeId) || PIPELINE_NODES[1];
+
+  // Smoothly center active node on small screens whenever activeId changes
+  useEffect(() => {
+    const container = scrollRef.current;
+    const nodeEl = document.getElementById(`sim-node-${activeId}`);
+    if (!container || !nodeEl) return;
+
+    const nodeOffsetLeft = nodeEl.offsetLeft;
+    const nodeWidth = nodeEl.offsetWidth;
+    const containerWidth = container.clientWidth;
+    const scrollTarget = nodeOffsetLeft - containerWidth / 2 + nodeWidth / 2;
+
+    container.scrollTo({
+      left: Math.max(0, scrollTarget),
+      behavior: "smooth",
+    });
+  }, [activeId]);
 
   // Auto-cycle through nodes during surge simulation to demonstrate end-to-end traffic flow
   useEffect(() => {
@@ -128,6 +156,20 @@ export function ArchitectureSimulator3D() {
 
   const handleManualSelect = (id: string) => {
     setActiveId(id);
+  };
+
+  const handleOpenCaseStudy = () => {
+    if (onInspectCaseStudy) {
+      onInspectCaseStudy(systemDesignPipelineCaseStudy);
+    } else {
+      setInternalCaseStudy(systemDesignPipelineCaseStudy);
+    }
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const offset = direction === "left" ? -280 : 280;
+    scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
   };
 
   return (
@@ -173,7 +215,7 @@ export function ArchitectureSimulator3D() {
           </h3>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => setSpike(!spike)}
             className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer shadow-sm active:scale-95 ${
@@ -185,11 +227,38 @@ export function ArchitectureSimulator3D() {
             <Zap className={`size-3.5 ${spike ? "text-amber-400 fill-amber-400 animate-bounce" : ""}`} />
             {spike ? "Stop Surge Simulation" : "Simulate Surge (2.5x)"}
           </button>
+
+          <button
+            onClick={handleOpenCaseStudy}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-foreground text-background hover:opacity-90 transition-all cursor-pointer active:scale-95 shadow-sm"
+          >
+            <span>Case Study</span>
+            <ArrowUpRight className="size-3.5" />
+          </button>
+
+          <div className="hidden sm:flex items-center gap-1 ml-1 border-l border-border/60 pl-2">
+            <button
+              type="button"
+              onClick={() => scroll("left")}
+              aria-label="Scroll left"
+              className="p-1 rounded-full border border-border/70 bg-surface text-foreground/80 hover:text-foreground hover:border-brand/40 transition-all cursor-pointer"
+            >
+              <ChevronLeft className="size-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll("right")}
+              aria-label="Scroll right"
+              className="p-1 rounded-full border border-border/70 bg-surface text-foreground/80 hover:text-foreground hover:border-brand/40 transition-all cursor-pointer"
+            >
+              <ChevronRight className="size-3.5" />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Interactive 3D Flow Nodes */}
-      <div className="relative py-8 overflow-x-auto no-scrollbar">
+      <div ref={scrollRef} className="relative py-8 overflow-x-auto no-scrollbar scroll-smooth">
         <div className="min-w-[720px] flex items-center justify-between relative px-2">
           {/* Animated Connecting Data Bus Line */}
           <div
@@ -253,6 +322,7 @@ export function ArchitectureSimulator3D() {
 
             return (
               <motion.button
+                id={`sim-node-${node.id}`}
                 key={node.id}
                 onClick={() => handleManualSelect(node.id)}
                 whileHover={{ scale: 1.05, y: -4 }}
@@ -354,6 +424,11 @@ export function ArchitectureSimulator3D() {
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Fallback Case Study modal if component is used standalone */}
+      {!onInspectCaseStudy && (
+        <CaseStudyModal item={internalCaseStudy} onClose={() => setInternalCaseStudy(null)} />
+      )}
     </div>
   );
 }

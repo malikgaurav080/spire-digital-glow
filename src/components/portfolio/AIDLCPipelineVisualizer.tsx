@@ -110,6 +110,23 @@ export function AIDLCPipelineVisualizer({ onInspectCaseStudy }: AIDLCPipelineVis
 
   const activeStage = STAGES.find((s) => s.id === activeId) || STAGES[0];
 
+  // Smoothly center the active node in the scroll track whenever activeId changes (on click or during simulation)
+  useEffect(() => {
+    const container = scrollRef.current;
+    const nodeEl = document.getElementById(`aidlc-node-${activeId}`);
+    if (!container || !nodeEl) return;
+
+    const nodeOffsetLeft = nodeEl.offsetLeft;
+    const nodeWidth = nodeEl.offsetWidth;
+    const containerWidth = container.clientWidth;
+    const scrollTarget = nodeOffsetLeft - containerWidth / 2 + nodeWidth / 2;
+
+    container.scrollTo({
+      left: Math.max(0, scrollTarget),
+      behavior: "smooth",
+    });
+  }, [activeId]);
+
   // Option A: Auto-play live simulation stepping through all 6 stages
   useEffect(() => {
     if (!isPlaying) return;
@@ -118,18 +135,7 @@ export function AIDLCPipelineVisualizer({ onInspectCaseStudy }: AIDLCPipelineVis
       setActiveId((currentId) => {
         const currentIndex = STAGES.findIndex((s) => s.id === currentId);
         const nextIndex = (currentIndex + 1) % STAGES.length;
-        const nextStage = STAGES[nextIndex];
-
-        // Smoothly center the active node in the scroll track
-        const nodeEl = document.getElementById(`aidlc-node-${nextStage.id}`);
-        if (nodeEl && scrollRef.current) {
-          const container = scrollRef.current;
-          const scrollTarget =
-            nodeEl.offsetLeft - container.clientWidth / 2 + nodeEl.clientWidth / 2;
-          container.scrollTo({ left: Math.max(0, scrollTarget), behavior: "smooth" });
-        }
-
-        return nextStage.id;
+        return STAGES[nextIndex].id;
       });
     }, 1800);
 
@@ -150,10 +156,6 @@ export function AIDLCPipelineVisualizer({ onInspectCaseStudy }: AIDLCPipelineVis
     // If currently at the last stage, loop back to stage 0
     if (activeId === STAGES[STAGES.length - 1].id) {
       setActiveId(STAGES[0].id);
-      const firstNode = document.getElementById(`aidlc-node-${STAGES[0].id}`);
-      if (firstNode && scrollRef.current) {
-        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-      }
     }
   };
 

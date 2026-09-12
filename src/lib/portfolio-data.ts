@@ -326,6 +326,29 @@ export const systemDesign = [
   },
 ];
 
+export const systemDesignPipelineCaseStudy = {
+  title: "Event-Driven Distributed Pipeline Architecture",
+  tag: "Distributed Systems · Kafka & Microservices",
+  description:
+    "High-concurrency event-driven architecture orchestrating reverse proxy ingress, partitioned Kafka event streaming, auto-scaling worker fleets, Redis cluster caching, and ACID persistence under peak financial workloads.",
+  tech: ["Node.js", "Apache Kafka", "Redis Cluster", "PostgreSQL", "MongoDB", "Docker / K8s", "Envoy"],
+  icon: Radio,
+  caseStudy: {
+    challenge:
+      "Handling 30,000+ financial transaction requests/second during flash festival peaks with sub-25ms latency SLAs while protecting downstream legacy banking cores from connection exhaustion.",
+    architecture:
+      "Layered topology featuring Envoy edge reverse proxy with token-bucket rate limiting, 32-partition Apache Kafka event bus for async order decoupling, Kubernetes HPA auto-scaled Node.js consumer worker pool, Redis cluster caching layer with 99.8% read hit ratio, and sharded PostgreSQL/Mongo datastores with write-ahead logging.",
+    resilience:
+      "Dynamic circuit breaker protection on third-party banking endpoints, Dead Letter Queues (DLQ) with automated retry jitter, and write-behind transaction queues to buffer peak disk I/O.",
+    results: [
+      "Sustained 28,000+ events/sec with zero message loss or broker lag",
+      "Redis cluster deflecting 99.8% of queries away from primary databases",
+      "Sub-25ms p99 end-to-end processing latency across live payment flows",
+      "Automatic scaling of worker pods from 40 to 96 pods in 35 seconds",
+    ],
+  },
+};
+
 export const aidlc = [
   {
     title: "Multi-Agent Task Decomposition (DAG)",

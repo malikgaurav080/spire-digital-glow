@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { ArchitectureSimulator3D } from "./ArchitectureSimulator3D";
 import { HorizontalCarousel } from "./HorizontalCarousel";
 import { systemDesign } from "@/lib/portfolio-data";
+import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
 
 export function SystemDesign() {
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyData | null>(null);
+
   return (
     <Section
       id="system-design"
@@ -17,7 +21,7 @@ export function SystemDesign() {
       description="From queue choreography to caching strategy — the building blocks behind reliable backends."
     >
       {/* Interactive 3D Distributed Architecture Pipeline */}
-      <ArchitectureSimulator3D />
+      <ArchitectureSimulator3D onInspectCaseStudy={setSelectedCaseStudy} />
 
       <HorizontalCarousel itemGapClass="gap-3.5" className="mt-8">
         {systemDesign.map((s, i) => (
@@ -41,6 +45,9 @@ export function SystemDesign() {
           </motion.div>
         ))}
       </HorizontalCarousel>
+
+      <CaseStudyModal item={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </Section>
   );
 }
+

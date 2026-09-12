@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { Card3D } from "./Card3D";
+import { HorizontalCarousel } from "./HorizontalCarousel";
 import { dataScience } from "@/lib/portfolio-data";
 import { Activity, ArrowUpRight, Sparkles } from "lucide-react";
 import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
@@ -21,15 +22,15 @@ export function DataScience() {
       }
       description="Bridging deep neural networks (CNNs, sequence modeling) and high-throughput production ML pipelines with sub-20ms inference, fraud detection, and explainable AI. Click any system to inspect its case study."
     >
-      <div className="grid md:grid-cols-2 gap-5 items-stretch">
+      <HorizontalCarousel itemGapClass="gap-5">
         {dataScience.map((item, i) => (
           <motion.div
             key={item.title}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: i * 0.08 }}
-            className="h-full flex flex-col"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.08, 0.24) }}
+            className="w-[86vw] sm:w-[calc(50%-10px)] md:w-[calc(50%-10px)] max-w-[440px] sm:max-w-none shrink-0 snap-start self-stretch flex flex-col"
           >
             <Card3D
               maxTilt={12}
@@ -94,7 +95,7 @@ export function DataScience() {
             </Card3D>
           </motion.div>
         ))}
-      </div>
+      </HorizontalCarousel>
 
       <CaseStudyModal item={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </Section>

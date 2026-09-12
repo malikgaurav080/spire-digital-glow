@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { Card3D } from "./Card3D";
+import { HorizontalCarousel } from "./HorizontalCarousel";
 import { projects } from "@/lib/portfolio-data";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { CaseStudyModal, CaseStudyData } from "./CaseStudyModal";
@@ -20,15 +21,15 @@ export function Projects() {
       }
       description="Selected backend systems behind real fintech products at Freecharge. Click any project to inspect its architecture case study."
     >
-      <div className="grid md:grid-cols-2 gap-5 items-stretch">
+      <HorizontalCarousel itemGapClass="gap-5">
         {projects.map((p, i) => (
           <motion.div
             key={p.title}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: i * 0.08 }}
-            className="h-full flex flex-col"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.08, 0.24) }}
+            className="w-[86vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] max-w-[440px] sm:max-w-none shrink-0 snap-start self-stretch flex flex-col"
           >
             <Card3D
               maxTilt={12}
@@ -87,7 +88,7 @@ export function Projects() {
             </Card3D>
           </motion.div>
         ))}
-      </div>
+      </HorizontalCarousel>
 
       <CaseStudyModal item={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </Section>

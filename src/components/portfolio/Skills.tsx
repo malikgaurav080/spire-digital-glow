@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { SpotlightCard } from "./SpotlightCard";
+import { HorizontalCarousel } from "./HorizontalCarousel";
 import { skillGroups } from "@/lib/portfolio-data";
 
 export function Skills() {
@@ -15,15 +16,15 @@ export function Skills() {
       }
       description="Battle-tested across fintech-grade workloads — chosen for fit, not fashion."
     >
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <HorizontalCarousel itemGapClass="gap-4">
         {skillGroups.map((g, i) => (
           <motion.div
             key={g.title}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="h-full"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.06, 0.24) }}
+            className="w-[84vw] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] max-w-[340px] sm:max-w-none shrink-0 snap-start self-stretch"
           >
             <SpotlightCard className="p-6 h-full flex flex-col justify-between hover-lift group">
               <div>
@@ -47,7 +48,7 @@ export function Skills() {
             </SpotlightCard>
           </motion.div>
         ))}
-      </div>
+      </HorizontalCarousel>
     </Section>
   );
 }

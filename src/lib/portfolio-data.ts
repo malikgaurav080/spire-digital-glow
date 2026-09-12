@@ -18,6 +18,12 @@ import {
   BrainCircuit,
   LineChart,
   BarChart3,
+  Bot,
+  Sparkles,
+  Terminal,
+  FileCode,
+  CheckCircle2,
+  GitPullRequest,
 } from "lucide-react";
 
 export const profile = {
@@ -96,6 +102,30 @@ export const experience = [
     ],
   },
 ];
+
+export const aidlcCaseStudy = {
+  title: "15-Min Automated Transaction Microservice Migration",
+  tag: "AIDLC · Multi-Agent · 480x Speedup",
+  description:
+    "Engineered an event-driven Hub-and-Spoke multi-agent pipeline using Model Context Protocol (MCP) to autonomously decompose, convert, and verify a large-scale financial transaction microservice from Node.js to strict TypeScript in just 14m 38s with zero runtime regressions.",
+  tech: ["TypeScript", "Node.js", "Subagents Swarm", "MCP Servers", "AST Parsers", "Docker", "Jest"],
+  icon: Bot,
+  caseStudy: {
+    challenge:
+      "A mission-critical financial transaction microservice (payment webhooks, Redis locks, Axis Bank Finacle ESB adapters, and ledger settlement) was written in CommonJS Node.js with complex untyped state. Manual migration was estimated at 3 weeks (120+ dev hours) with high risk of introducing runtime regressions into live financial flows.",
+    architecture:
+      "Designed a hierarchical Hub-and-Spoke multi-agent architecture. A Lead Orchestrator Agent generated topological dependency DAGs and enqueued discrete conversion payloads over an event bus. 8 specialized subagents ran concurrently: (1) Schema & DTO Synthesizer via DB Schema MCP, (2) Core Domain & Ledger Engineer, (3) Finacle CBS Protocol Bridge via Postman MCP, (4) Routes & Auth Guards Engineer, (5) Unit & Mock Test Harness via Jest MCP, (6) AST Semantic Parity Auditor, (7) Self-Healing Compiler Agent resolving tsc diagnostics, and (8) GitOps & Security Reviewer.",
+    resilience:
+      "Continuous two-phase verification loop: Subagents reported completion tokens and AST signatures back to the Master Orchestrator. The AST Parity Engine guaranteed zero control-flow divergence, the Self-Healing Agent resolved circular imports and strict null errors in real time, and automated Dead Letter Queues prevented faulty commits.",
+    results: [
+      "14m 38s autonomous migration time vs 120+ hours manual estimate (~480x velocity multiplier)",
+      "8 specialized subagents coordinated concurrently without cross-contamination or hallucination",
+      "100% strict TypeScript mode compliance with zero 'any' escapes across 48 modules",
+      "0 runtime regressions detected across 140+ integration test suites",
+      "Automated OpenAPI specifications & runtime Zod validation contracts synchronized across all endpoints",
+    ],
+  },
+};
 
 export const projects = [
   {
@@ -233,12 +263,189 @@ export const systemDesign = [
 ];
 
 export const aidlc = [
-  { title: "AI-assisted System Design", icon: Cpu },
-  { title: "AI-assisted Development", icon: GitBranch },
-  { title: "Automated Test Generation", icon: Activity },
-  { title: "Technical Documentation", icon: Layers },
-  { title: "Engineering Productivity", icon: GaugeCircle },
+  {
+    title: "Multi-Agent Task Decomposition (DAG)",
+    desc: "Directed Acyclic Graphs decoupling complex microservices into bounded concurrent units.",
+    icon: Workflow,
+  },
+  {
+    title: "Model Context Protocol (MCP)",
+    desc: "Standardized tool interfaces connecting LLM agents to Git, DB schemas, AST engines & test runners.",
+    icon: Cpu,
+  },
+  {
+    title: "AST Semantic Parity Verification",
+    desc: "Ensuring zero behavioral drift or control flow mutations during transpilation.",
+    icon: Terminal,
+  },
+  {
+    title: "Automated Test & Contract Scaffolding",
+    desc: "Auto-generating Zod schemas, OpenAPI contracts, and containerized regression suites.",
+    icon: CheckCircle2,
+  },
+  {
+    title: "Continuous Verification & GitOps",
+    desc: "Self-healing compiler feedback loops (`tsc --noEmit`) before opening verified Pull Requests.",
+    icon: GitPullRequest,
+  },
+  {
+    title: "15-Min Enterprise MS Migration",
+    desc: "Live migration from CommonJS Node.js to strict TypeScript via Master Orchestrator + 8 specialized subagents.",
+    icon: Sparkles,
+  },
 ];
+
+export const mcpEcosystem = [
+  {
+    name: "GitHub MCP Server",
+    role: "GitOps & PR Orchestration",
+    desc: "Isolated branch sandboxing, atomic per-module commits, and auto-generated PR diff analysis.",
+    icon: GitPullRequest,
+    badge: "Version Control",
+  },
+  {
+    name: "DB Schema MCP Server",
+    role: "Schema Reflection & DTO Synthesis",
+    desc: "Direct introspection of PostgreSQL & MongoDB catalogs to generate typed entities & Zod contracts.",
+    icon: Database,
+    badge: "Data Layer",
+  },
+  {
+    name: "Postman & REST MCP",
+    role: "Contract Regression Testing",
+    desc: "Executes automated integration suites against live/mock endpoints to certify zero payload drift.",
+    icon: MessageSquare,
+    badge: "API Testing",
+  },
+  {
+    name: "AST & Compiler MCP",
+    role: "Static Analysis & Parity Harness",
+    desc: "Orchestrates headless TypeScript compiler API, Babel AST equality trees, and Jest runners.",
+    icon: Terminal,
+    badge: "Verification",
+  },
+];
+
+export const subagentsHierarchy = [
+  {
+    id: "subagent-1",
+    name: "Subagent-1: Schema & DTO Synthesizer",
+    shortName: "Schema & DTO",
+    role: "Database Schema & Type Reflection",
+    mcp: "db-schema-mcp",
+    color: "emerald",
+    inputs: "PostgreSQL DDL, Mongo collections",
+    outputs: "Strict Zod schemas, DB entity types",
+    responsibility:
+      "Introspects SQL tables and MongoDB schemas to auto-generate strict TypeScript interfaces and runtime Zod validation contracts with zero manual typing.",
+  },
+  {
+    id: "subagent-2",
+    name: "Subagent-2: Core Domain & Ledger",
+    shortName: "Domain & Ledger",
+    role: "State Machine & Mutex Logic",
+    mcp: "ast-engine-mcp",
+    color: "cyan",
+    inputs: "Untyped payment & balance services",
+    outputs: "Typed state machines & ACID handlers",
+    responsibility:
+      "Transpiles financial calculation logic, double-entry ledger state machines, and Redis distributed lock flows into immutable, strictly typed TypeScript.",
+  },
+  {
+    id: "subagent-3",
+    name: "Subagent-3: Finacle & Gateway Adapters",
+    shortName: "Finacle Adapters",
+    role: "External Banking Protocol Bridge",
+    mcp: "postman-mcp + ast-engine",
+    color: "purple",
+    inputs: "Finacle SOAP/XML & payment webhooks",
+    outputs: "Typed Axios clients & XML parsers",
+    responsibility:
+      "Refactors Axis Bank Finacle CBS adapters and payment aggregator interfaces into typed API clients with comprehensive runtime error schemas.",
+  },
+  {
+    id: "subagent-4",
+    name: "Subagent-4: API Routes & Middlewares",
+    shortName: "Routes & Guards",
+    role: "HTTP Layer & Auth Enforcement",
+    mcp: "github-mcp",
+    color: "blue",
+    inputs: "Express routers & JWT middlewares",
+    outputs: "Typed handlers with Zod validation",
+    responsibility:
+      "Converts Express route definitions, attaches runtime Zod request validators, and ensures JWT security guards and rate limiters have strict type signatures.",
+  },
+  {
+    id: "subagent-5",
+    name: "Subagent-5: Unit & Mock Test Harness",
+    shortName: "Test Harness",
+    role: "Test Suite Transpilation & Mocking",
+    mcp: "jest-runner-mcp",
+    color: "amber",
+    inputs: "Legacy JS test suites & mock data",
+    outputs: "Typed Jest/Vitest specs & mock factories",
+    responsibility:
+      "Migrates unit and integration test suites to TypeScript, generates type-safe mock factories for Redis/DB connections, and verifies all assertions pass.",
+  },
+  {
+    id: "subagent-6",
+    name: "Subagent-6: AST Semantic Parity Engine",
+    shortName: "AST Parity",
+    role: "Equivalence & Flow Divergence Check",
+    mcp: "ast-parity-mcp",
+    color: "rose",
+    inputs: "Original JS AST vs Transpiled TS AST",
+    outputs: "Equivalence proof certificate",
+    responsibility:
+      "Compares Abstract Syntax Trees before and after migration to mathematically prove zero unintended control-flow shifts or variable scoping leaks.",
+  },
+  {
+    id: "subagent-7",
+    name: "Subagent-7: Self-Healing Compiler",
+    shortName: "Self-Healing tsc",
+    role: "Diagnostic Resolution & Patching",
+    mcp: "tsc-compiler-mcp",
+    color: "indigo",
+    inputs: "tsc diagnostic logs & circular imports",
+    outputs: "Self-repaired TypeScript patches",
+    responsibility:
+      "Runs headless 'tsc --noEmit' checks; upon detecting circular imports or strict null mismatches, automatically generates localized AST hot-patches.",
+  },
+  {
+    id: "subagent-8",
+    name: "Subagent-8: GitOps & Security Reviewer",
+    shortName: "GitOps Reviewer",
+    role: "Security Audit & PR Orchestration",
+    mcp: "github-mcp",
+    color: "brand",
+    inputs: "Transpiled repo & audit logs",
+    outputs: "Atomic git commits & GitHub PR #84",
+    responsibility:
+      "Scans for secrets, audits license compliance, generates architectural changelogs with parity certificates, and opens verified Pull Requests.",
+  },
+];
+
+export const masterOrchestrator = {
+  name: "Master Orchestrator Agent (Lead Architect)",
+  role: "Hub-and-Spoke DAG Controller",
+  protocol: "Model Context Protocol (MCP) JSON-RPC over Event Bus",
+  desc: "Builds the topological dependency graph, dispatches parallel conversion payloads to 8 specialized subagents, handles heartbeats and failure retries, and coordinates the two-phase verification harness.",
+};
+
+export const aidlcMetrics = {
+  manualTime: "120 hrs",
+  manualNote: "Estimated 3 weeks for 2 senior engineers",
+  agenticTime: "14m 38s",
+  agenticNote: "Fully automated via Master Orchestrator + 8 specialized subagents",
+  velocity: "480x",
+  typeSafety: "100%",
+  typeSafetyNote: "Strict mode enabled, zero 'any' escapes",
+  regressions: "0",
+  regressionsNote: "140+ unit/integration tests verified pass",
+  filesTranspiled: "48",
+  linesOfCode: "12,400+",
+  subagentsCount: 8,
+};
 
 export const dataScience = [
   {

@@ -24,6 +24,7 @@ import {
   Sun,
   Check,
   Award,
+  Bot,
 } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
 
@@ -136,6 +137,12 @@ export function CommandPalette({
             <Activity className="mr-2 size-4 text-muted-foreground" />
             <span>Data Science &amp; Stream Analytics</span>
             <CommandShortcut>#data-science</CommandShortcut>
+          </CommandItem>
+
+          <CommandItem onSelect={() => runCommand(() => scrollToSection("aidlc"))}>
+            <Bot className="mr-2 size-4 text-cyan-400" />
+            <span className="font-medium text-foreground">AIDLC &amp; Multi-Agent Systems</span>
+            <CommandShortcut>#aidlc</CommandShortcut>
           </CommandItem>
 
           <CommandItem onSelect={() => runCommand(() => scrollToSection("achievements"))}>
